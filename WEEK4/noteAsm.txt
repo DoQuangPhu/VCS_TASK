@@ -1,0 +1,218 @@
+rcx,rdx,r8,r9,stack
+\
+
+
+
+; DOS_READ PROC ; edi,esi
+;     mov edx,edi 
+;     push edi 
+;     mov edi, offset DOS_e_magic
+;     mov esi, 9
+;     call print_f
+;     mov edi, DWORD PTR [edx]  ; Load e_magic
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_cblp
+;     mov esi, 11
+;     call print_f
+;     mov edi, DWORD PTR [edx + 2]  ; Load e_cblp
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_cp
+;     mov esi, 13
+;     call print_f
+;     mov edi, DWORD PTR [edx + 4]  ; Load e_cp
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_crlc
+;     mov esi, 15
+;     call print_f
+;     mov edi, DWORD PTR [edx + 6]  ; Load e_crlc
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_cparhdr
+;     mov esi, 17
+;     call print_f
+;     mov edi, DWORD PTR [edx + 8]  ; Load e_cparhdr
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_minalloc
+;     mov esi, 19
+;     call print_f
+;     mov edi, DWORD PTR [edx + 10]  ; Load e_minalloc
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_maxalloc
+;     mov esi, 21
+;     call print_f
+;     mov edi, DWORD PTR [edx + 12]  ; Load e_maxalloc
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_ss
+;     mov esi, 23
+;     call print_f
+;     mov edi, DWORD PTR [edx + 14]  ; Load e_ss
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_sp
+;     mov esi, 25
+;     call print_f
+;     mov edi, DWORD PTR [edx + 16]  ; Load e_sp
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_csum
+;     mov esi, 27
+;     call print_f
+;     mov edi, DWORD PTR [edx + 18]  ; Load e_csum
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_ip
+;     mov esi, 29
+;     call print_f
+;     mov edi, DWORD PTR [edx + 20]  ; Load e_ip
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_cs
+;     mov esi, 31
+;     call print_f
+;     mov edi, DWORD PTR [edx + 22]  ; Load e_cs
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_lfarlc
+;     mov esi, 33
+;     call print_f
+;     mov edi, DWORD PTR [edx + 24]  ; Load e_lfarlc
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_ovno
+;     mov esi, 35
+;     call print_f
+;     mov edi, DWORD PTR [edx + 26]  ; Load e_ovno
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_res
+;     mov esi, 37
+;     call print_f
+;     mov edi, DWORD PTR [edx + 28]  ; Load e_res (first word)
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_oemid
+;     mov esi, 45
+;     call print_f
+;     mov edi, DWORD PTR [edx + 36]  ; Load e_oemid
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_oeminfo
+;     mov esi, 47
+;     call print_f
+;     mov edi, DWORD PTR [edx + 38]  ; Load e_oeminfo
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_res2
+;     mov esi, 49
+;     call print_f
+;     mov edi, DWORD PTR [edx + 40]  ; Load e_res2 (first word)
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+
+;     mov edi, offset DOS_e_lfanew
+;     mov esi, 129
+;     call print_f
+;     mov edi, DWORD PTR [edx + 80]  ; Load e_lfanew
+;     xor edi,0ffffh
+;     xor esi, esi 
+;     call intohex 
+;     mov edi, offset HexString_rev
+;     mov esi, 10
+;     call print_f
+;     ret 
+; DOS_READ endp 
